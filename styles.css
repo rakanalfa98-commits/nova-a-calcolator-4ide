@@ -1,0 +1,10 @@
+/* Custom styles not easily handled by Tailwind or for variables */
+body {
+    /* Ensures the body takes up the full viewport height */
+    min-height: 100vh;
+}
+
+/* Hide scrollbar for webkit browsers (Chrome, Safari) */
+#display::-webkit-scrollbar {
+    display: none;
+}

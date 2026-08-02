@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleek Calculator App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <style>
+        :root {
+            --primary-bg: #1a202c;
+            --secondary-bg: #2d3748;
+            --button-bg-light: #4a5568;
+            --button-bg-dark: #2c3541;
+            --accent-color: #63b3ed;
+            --text-color-light: #e2e8f0;
+            --text-color-dark: #cbd5e0;
+            --operator-color: #f6ad55;
+            --equals-color: #48bb78;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .calc-button {
+            @apply flex items-center justify-center text-xl font-medium rounded-xl transition-all duration-200 ease-in-out cursor-pointer;
+            background-color: var(--button-bg-light);
+            color: var(--text-color-light);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2), inset 0 2px 4px rgba(255, 255, 255, 0.05);
+        }
+
+        .calc-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.03);
+        }
+
+        .calc-button.number:hover {
+            background-color: #5a6578;
+        }
+
+        .calc-button.operator {
+            background-color: var(--operator-color);
+            color: var(--primary-bg);
+            font-weight: 600;
+        }
+        .calc-button.operator:hover {
+            background-color: #fbd38d;
+        }
+
+        .calc-button.clear {
+            background-color: #e53e3e;
+            color: var(--text-color-light);
+            font-weight: 600;
+        }
+        .calc-button.clear:hover {
+            background-color: #fc8181;
+        }
+
+        .calc-button.equals {
+            background-color: var(--equals-color);
+            color: var(--primary-bg);
+            font-weight: 600;
+        }
+        .calc-button.equals:hover {
+            background-color: #81e6d9;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="calculator bg-secondary-bg p-6 rounded-3xl shadow-2xl w-full max-w-sm mx-auto">
+        <!-- Display -->
+        <div id="display" class="bg-primary-bg text-text-color-light text-right text-5xl font-light py-6 px-5 mb-6 rounded-xl overflow-hidden whitespace-nowrap overflow-x-auto shadow-inner" style="min-height: 100px; scrollbar-width: none;">
+            0
+        </div>
+
+        <!-- Buttons Grid -->
+        <div class="grid grid-cols-4 gap-4">
+            <button class="calc-button clear col-span-2 text-2xl" data-action="clear">AC</button>
+            <button class="calc-button operator" data-action="/">/</button>
+            <button class="calc-button operator" data-action="*">*</button>
+
+            <button class="calc-button number" data-digit="7">7</button>
+            <button class="calc-button number" data-digit="8">8</button>
+            <button class="calc-button number" data-digit="9">9</button>
+            <button class="calc-button operator" data-action="-">-</button>
+
+            <button class="calc-button number" data-digit="4">4</button>
+            <button class="calc-button number" data-digit="5">5</button>
+            <button class="calc-button number" data-digit="6">6</button>
+            <button class="calc-button operator" data-action="+">+</button>
+
+            <button class="calc-button number" data-digit="1">1</button>
+            <button class="calc-button number" data-digit="2">2</button>
+            <button class="calc-button number" data-digit="3">3</button>
+            <button class="calc-button equals row-span-2 text-2xl" data-action="equals">=</button>
+
+            <button class="calc-button number col-span-2" data-digit="0">0</button>
+            <button class="calc-button number" data-digit=".">.</button>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
